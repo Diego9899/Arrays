@@ -1,0 +1,43 @@
+*{
+  font-family: Verdana, sans-serif;
+  list-style:none;
+  text-decoration: none;
+}
+
+body {
+  background: rgb(62, 220, 245);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(62, 220, 245, 1) 0%,
+    rgba(14, 183, 217, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(62, 220, 245, 1) 0%,
+    rgba(14, 183, 217, 1) 100%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(62, 220, 245, 1) 0%,
+    rgba(14, 183, 217, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3edcf5",endColorstr="#0eb7d9",GradientType=1);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main{
+    height: 100vh;   
+}
+
+h1{
+  font-size: 30px;
+  margin: 5% 30%;
+}
+ul{
+  font-size: 20px;
+  margin: 5% 30%;
+}
+ul li{
+  font-size: 15px;
+}
