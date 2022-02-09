@@ -19,7 +19,6 @@ function eleccionJugador1() {
     jugador = 3;
   } else {
     console.log("Elije una opción: Piedra(1) - Papel(2) - Tijera(3)");
-    eleccionJugador1();
   }
 }
 
