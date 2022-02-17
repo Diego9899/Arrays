@@ -1,43 +1,90 @@
 *{
-  font-family: Verdana, sans-serif;
+  font-family: "Nunito";
+  color: white;
   list-style:none;
   text-decoration: none;
 }
 
 body {
-  background: rgb(62, 220, 245);
-  background: -moz-linear-gradient(
-    90deg,
-    rgba(62, 220, 245, 1) 0%,
-    rgba(14, 183, 217, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    90deg,
-    rgba(62, 220, 245, 1) 0%,
-    rgba(14, 183, 217, 1) 100%
-  );
-  background: linear-gradient(
-    90deg,
-    rgba(62, 220, 245, 1) 0%,
-    rgba(14, 183, 217, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3edcf5",endColorstr="#0eb7d9",GradientType=1);
+  background: rgb(255,255,255);
+  background: -moz-linear-gradient(330deg, rgba(255,255,255,1) 5%, rgba(233,233,233,1) 94%);
+  background: -webkit-linear-gradient(330deg, rgba(255,255,255,1) 5%, rgba(233,233,233,1) 94%);
+  background: linear-gradient(330deg, rgba(255,255,255,1) 5%, rgba(233,233,233,1) 94%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#e9e9e9",GradientType=1);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
 }
-main{
-    height: 100vh;   
+/* Header - nav */
+header{
+  height: 20vh;
+  width: 100%;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.384);
+  background-color: rgb(223, 68, 68);
+  display: flex;
 }
 
+/* Main */
 h1{
-  font-size: 30px;
-  margin: 5% 30%;
+  font-size: 50px;
+  text-align: center;
+  color: rgb(223, 68, 68);
 }
-ul{
-  font-size: 20px;
-  margin: 5% 30%;
+.juego{
+  display: flex;
+  flex-flow: column, wrap;
+  justify-content: center;
 }
-ul li{
-  font-size: 15px;
+.contenedor{
+  margin: 5% 20%;
+  display: flex;
+  flex-flow: row, wrap;
+  justify-content: space-around;
+  /* Estilo */
+  background-color: rgb(68, 166, 223);
+  border-radius: 15px;
+  box-shadow: 1px 4px 0px 0px #21318a;
+}
+.contenedor span{
+  font-size:100px;
+}
+.boton{
+  height: 50px;
+  margin: 5% auto;
+  display: flex;
+  flex-flow: row, wrap;
+  justify-content: center;
+}
+button{
+  box-shadow: 1px 4px 0px 0px #21318a;
+	background-color:rgb(68, 166, 223);
+	border-radius:18px;
+  border:1px solid rgb(68, 166, 223);
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:20px;
+	font-weight:bold;
+	padding:7px 25px;
+}
+button:hover{
+  transition: 600ms;
+  transform: scale(1.1,1.1);
+}
+.opcionesBotones{
+  display: flex;
+  flex-flow: row, wrap;
+  justify-content: space-between;
+}
+/* Footer */
+footer{
+  height: 20vh;
+  width: 100%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.384);
+  background-color: rgb(223, 68, 68);
+}
+footer div{
+  display: flex;
+  justify-content: center;
 }
