@@ -19,7 +19,7 @@ class Datos{
       this.estado = estado
     }
   }
-  const Usuario1 = new Datos()
+  const Usuario1 = new Datos(puntos = 0)
 
 // Elección del nombre del usuario para jugar
 formularioNombreUsuario.addEventListener("submit", validarNombre)
@@ -66,66 +66,76 @@ function eleccionJugador1(e) {
   }
 }
 
+// Se compara el valor del usuario y el generado por el random de la maquina
+function juego() {
+  // piedra
+  if (jugador === 1 && azar === 0) {
+    textoMaquina.innerHTML="La maquina elije PIEDRA"
+    resultado("3")
+  } else if (jugador === 1 && azar === 1) {
+    textoMaquina.innerHTML="La maquina elije PAPEL"
+    resultado("2")
+  } else if (jugador === 1 && azar === 2) {
+    textoMaquina.innerHTML="La maquina elije TIJERA"
+    resultado("1")
+    // papel
+  } else if (jugador === 2 && azar === 0) {
+    textoMaquina.innerHTML="La maquina elije PIEDRA"
+    resultado("1")
+  } else if (jugador === 2 && azar === 1) {
+    textoMaquina.innerHTML="La maquina elije PAPEL"
+    resultado("3")
+  } else if (jugador === 2 && azar === 2) {
+    textoMaquina.innerHTML="La maquina elije TIJERA"
+    resultado("2")
+    // tijera
+  } else if (jugador === 3 && azar === 0) {
+    textoMaquina.innerHTML="La maquina elije PIEDRA"
+    resultado("2")
+  } else if (jugador === 3 && azar === 1) {
+    textoMaquina.innerHTML="La maquina elije PAPEL"
+    resultado("1")
+  } else if (jugador === 3 && azar === 2) {
+    textoMaquina.innerHTML="La maquina elije TIJERA"
+    resultado("3")
+  } else {
+    textoJugador.innerHTML="Elije una opción"
+  }
+}
+
+// Escribe el resultado en el HTML
+function resultado(resultado){
+  switch(resultado){
+    case "1":
+      textoResultado.innerHTML="¡Ganaste!"
+      Usuario1.estado = "Ganaste la última partida"
+      Usuario1.puntos =  Usuario1.puntos +3
+      cuadroPuntos.innerHTML = `${Usuario1.puntos}`
+      break;
+    case "2":
+      textoResultado.innerHTML="¡Gana la maquina!"
+      Usuario1.estado = "Perdiste la última partida"
+      cuadroPuntos.innerHTML = `${Usuario1.puntos}`
+      break;
+    case "3":
+      Usuario1.estado = "Empataste la última partida"
+      Usuario1.puntos = Usuario1.puntos + 1
+      cuadroPuntos.innerHTML = `${Usuario1.puntos}`
+      break;
+  }
+
+}
+// Storage
+sessionStorage.setItem("usuario", Usuario1);
+let usuarioJson = JSON.stringify(Usuario1);
+let usuario = JSON.parse(sessionStorage.getItem("usuario"));
+
+
 let botonHistorial = document.querySelector("#botonHistorial")
 // Se pregunta si se quiere ver el historial de partidas
 botonHistorial.onclick = preguntaHistorial
 function preguntaHistorial(e){
   e.preventDefault();
     historial.push(Usuario1)
-    textoResultado.innerHTML = `${Usuario1.estado}`
+    textoResultado.innerHTML = `${Usuario1.estado}`;
 }
-
-// Se compara el valor del usuario y el generado por el random de la maquina
-function juego() {
-  // piedra
-  if (jugador === 1 && azar === 0) {
-    textoMaquina.innerHTML="La maquina elije PIEDRA"
-    textoResultado.innerHTML="¡Hay empate!"
-    Usuario1.estado = "Empataste la última partida"
-    Usuario1.puntos = 1
-  } else if (jugador === 1 && azar === 1) {
-    textoMaquina.innerHTML="La maquina elije PAPEL"
-    textoResultado.innerHTML="¡Gana la maquina!"
-    Usuario1.estado = "Perdiste la última partida"
-  } else if (jugador === 1 && azar === 2) {
-    textoMaquina.innerHTML="La maquina elije TIJERA"
-    textoResultado.innerHTML="¡Ganaste!"
-    Usuario1.estado = "Ganaste la última partida"
-    Usuario1.puntos = 3
-    // papel
-  } else if (jugador === 2 && azar === 0) {
-    textoMaquina.innerHTML="La maquina elije PIEDRA"
-    textoResultado.innerHTML="¡Ganaste!"
-    Usuario1.estado = "Ganaste la última partida"
-    Usuario1.puntos = 3
-  } else if (jugador === 2 && azar === 1) {
-    textoMaquina.innerHTML="La maquina elije PAPEL"
-    textoResultado.innerHTML="¡Hay empate!"
-    Usuario1.estado = "Empataste la última partida"
-    Usuario1.puntos = 2
-  } else if (jugador === 2 && azar === 2) {
-    textoMaquina.innerHTML="La maquina elije TIJERA"
-    textoResultado.innerHTML="¡Gana la maquina!"
-    Usuario1.estado = "Perdiste la última partida"
-    // tijera
-  } else if (jugador === 3 && azar === 0) {
-    textoMaquina.innerHTML="La maquina elije PIEDRA"
-    textoResultado.innerHTML="¡Gana la maquina!"
-    Usuario1.estado = "Perdiste la última partida"
-  } else if (jugador === 3 && azar === 1) {
-    textoMaquina.innerHTML="La maquina elije PAPEL"
-    textoResultado.innerHTML="¡Ganaste!"
-    Usuario1.estado = "Ganaste la última partida"
-    Usuario1.puntos = 3
-  } else if (jugador === 3 && azar === 2) {
-    textoMaquina.innerHTML="La maquina elije TIJERA"
-    textoResultado.innerHTML="¡Hay empate!"
-    Usuario1.estado = "Empataste la última partida"
-    Usuario1.puntos = 1
-  } else {
-    textoJugador.innerHTML="Elije una opción"
-  }
-}
-
-
-
