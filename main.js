@@ -109,18 +109,19 @@ function resultado(resultado){
     case "1":
       textoResultado.innerHTML="¡Ganaste!"
       Usuario1.estado = "Ganaste la última partida"
-      Usuario1.puntos =  Usuario1.puntos +3
-      cuadroPuntos.innerHTML = `${Usuario1.puntos}`
+      // Usuario1.puntos =  Usuario1.puntos +3
+      // cuadroPuntos.innerHTML = `${Usuario1.puntos}`
       break;
     case "2":
       textoResultado.innerHTML="¡Gana la maquina!"
       Usuario1.estado = "Perdiste la última partida"
-      cuadroPuntos.innerHTML = `${Usuario1.puntos}`
+      // cuadroPuntos.innerHTML = `${Usuario1.puntos}`
       break;
     case "3":
+      textoResultado.innerHTML="¡Empate!"
       Usuario1.estado = "Empataste la última partida"
-      Usuario1.puntos = Usuario1.puntos + 1
-      cuadroPuntos.innerHTML = `${Usuario1.puntos}`
+      // Usuario1.puntos = Usuario1.puntos + 1
+      // cuadroPuntos.innerHTML = `${Usuario1.puntos}`
       break;
   }
 
@@ -128,7 +129,7 @@ function resultado(resultado){
 // Storage
 sessionStorage.setItem("usuario", Usuario1);
 let usuarioJson = JSON.stringify(Usuario1);
-let usuario = JSON.parse(sessionStorage.getItem("usuario"));
+const usuario = JSON.parse(sessionStorage.getItem("usuarioJson"));
 
 
 let botonHistorial = document.querySelector("#botonHistorial")
